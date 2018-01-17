@@ -22,5 +22,10 @@
   "homepage": "https://github.com/ozankasikci/redux-easy-actions#readme",
   "dependencies": {
     "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.63.1"
   }
 }
