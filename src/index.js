@@ -8,8 +8,6 @@ import type {
   actionConstantType,
   componentNameType,
   componentActionsType,
-  generateActionCreatorsReturn,
-  generateActionConstantsReturn,
 } from './flow-types';
 
 
@@ -18,7 +16,12 @@ const generateActionConstant = (componentName: componentNameType, name: string):
 };
 
 
-const generateActionCreator = (componentName: componentNameType, action: actionType, name: string): actionCreatorType => {
+const generateActionCreator = (
+  componentName: componentNameType,
+  action: actionType,
+  name: string
+): actionCreatorType => {
+
   const actionConstant = generateActionConstant(componentName, name);
 
   if (!action.dispatch) {
@@ -42,6 +45,11 @@ const generateActionCreator = (componentName: componentNameType, action: actionT
 };
 
 
+type generateActionCreatorsReturn = {
+  [string]: {
+    [string]: actionCreatorType
+  }
+};
 const generateActionCreators = (componentActions: componentActionsType): generateActionCreatorsReturn => {
   const generatedActions = {};
 
@@ -59,6 +67,9 @@ const generateActionCreators = (componentActions: componentActionsType): generat
 };
 
 
+type generateActionConstantsReturn = {
+  [string]: string
+};
 const generateActionConstants = (componentActions: componentActionsType): generateActionConstantsReturn => {
   const constants = {};
 
