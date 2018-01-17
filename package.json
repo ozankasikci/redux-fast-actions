@@ -1,0 +1,26 @@
+{
+  "name": "redux-easy-actions",
+  "version": "0.0.1",
+  "description": "A module to ease the pain of creating actions constants and action creator functions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozankasikci/redux-easy-actions.git"
+  },
+  "keywords": [
+    "redux",
+    "action"
+  ],
+  "author": "Ozan Kaşıkçı",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozankasikci/redux-easy-actions/issues"
+  },
+  "homepage": "https://github.com/ozankasikci/redux-easy-actions#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
