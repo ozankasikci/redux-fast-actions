@@ -4,18 +4,22 @@ import _ from 'lodash';
 
 import type {
   actionType,
+  actionCreatorType,
+  actionConstantType,
   componentNameType,
   componentActionsType,
+  generateActionCreatorsReturn,
+  generateActionConstantsReturn,
 } from './flow-types';
 
 
-const generateActionConstantName = (componentName: componentNameType, name: string) => {
+const generateActionConstant = (componentName: componentNameType, name: string): actionConstantType => {
   return _.snakeCase(`${componentName}${_.upperFirst(name)}`).toUpperCase();
 };
 
 
-const generateActionCreator = (componentName: componentNameType, action: actionType, name: string) => {
-  const actionConstant = generateActionConstantName(componentName, name);
+const generateActionCreator = (componentName: componentNameType, action: actionType, name: string): actionCreatorType => {
+  const actionConstant = generateActionConstant(componentName, name);
 
   if (!action.dispatch) {
     return (...args) => {
@@ -29,7 +33,7 @@ const generateActionCreator = (componentName: componentNameType, action: actionT
       _.forEach(action.dispatch, (subAction, subActionName) => {
         const argumentNames = subAction.argumentIndices.map(index => action.arguments[index]);
         const argumentz = subAction.argumentIndices.map(index => args[index]);
-        const subActionConstant = generateActionConstantName(componentName, subActionName);
+        const subActionConstant = generateActionConstant(componentName, subActionName);
         const payload = _.zipObject(argumentNames, argumentz);
         dispatch({ type: subActionConstant, payload });
       })
@@ -38,7 +42,7 @@ const generateActionCreator = (componentName: componentNameType, action: actionT
 };
 
 
-const generateActionCreators = (componentActions: componentActionsType) => {
+const generateActionCreators = (componentActions: componentActionsType): generateActionCreatorsReturn => {
   const generatedActions = {};
 
   _.forEach(componentActions, (actions, componentName) => {
@@ -55,7 +59,7 @@ const generateActionCreators = (componentActions: componentActionsType) => {
 };
 
 
-const generateActionConstants = (componentActions: componentActionsType) => {
+const generateActionConstants = (componentActions: componentActionsType): generateActionConstantsReturn => {
   const constants = {};
 
   _.forEach(componentActions, (actions, componentName) => {
@@ -63,12 +67,12 @@ const generateActionConstants = (componentActions: componentActionsType) => {
     _.forEach(actions, (action, name) => {
       if (action.dispatch) {
         return _.forEach(action.dispatch, (action, name) => {
-          const actionConstant = generateActionConstantName(componentName, name);
+          const actionConstant = generateActionConstant(componentName, name);
           constants[actionConstant] = actionConstant;
         })
       }
 
-      const actionConstant = generateActionConstantName(componentName, name);
+      const actionConstant = generateActionConstant(componentName, name);
       constants[actionConstant] = actionConstant;
     })
   });
