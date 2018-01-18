@@ -1,0 +1,15 @@
+type componentActionsType = {
+  [string]: Object
+};
+
+type componentNameType = string;
+
+export type actionType = {
+  dispatch: { [string]: Object },
+  arguments: Array<Object>
+};
+
+type actionConstantType = string;
+
+type actionCreatorType = function;
+
