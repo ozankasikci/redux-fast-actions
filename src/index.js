@@ -1,5 +1,5 @@
 //@flow
-import _ from 'lodash';
+const _ = require('lodash');
 
 const generateActionConstant = (componentName: componentNameType, name: string): actionConstantType => {
   return _.snakeCase(`${componentName}${_.upperFirst(name)}`).toUpperCase();
@@ -74,9 +74,9 @@ const generateActionConstants = (componentActions: componentActionsType): Object
 };
 
 
-export default (componentActions: componentActionsType) => {
+module.exports = (componentActions: componentActionsType) => {
   return {
     types: generateActionConstants(componentActions),
     actions: generateActionCreators(componentActions),
   }
-}
+};
