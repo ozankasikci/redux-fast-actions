@@ -4,7 +4,7 @@
   "description": "A module to ease the pain of creating actions constants and action creator functions.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "exit 0",
     "flow:build": "flow-remove-types ./src/ -d ./lib/ --all --pretty",
     "flow:deps": "flow-typed install"
   },
