@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ozankasikci/redux-fast-actions.svg?branch=master)](https://travis-ci.org/ozankasikci/redux-fast-actions)
 # Why?
 Because declaring action constants and action creator function for each action is a real pain.
 
