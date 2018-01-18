@@ -1,6 +1,6 @@
 {
   "name": "redux-easy-actions",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A module to ease the pain of creating actions constants and action creator functions.",
   "main": "lib/index.js",
   "scripts": {
