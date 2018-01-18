@@ -6,7 +6,7 @@ type componentNameType = string;
 
 export type actionType = {
   dispatch: { [string]: Object },
-  arguments: Array<Object>
+  payload: Array<Object>
 };
 
 type actionConstantType = string;

@@ -16,7 +16,7 @@ const generateActionCreator = (
 
   if (!action.dispatch) {
     return (...args) => {
-      const payload = action.arguments ? _.zipObject(action.arguments, args) : args[0];
+      const payload = action.payload ? _.zipObject(action.payload, args) : args[0];
       return { type: actionConstant, payload };
     };
   }
@@ -24,10 +24,10 @@ const generateActionCreator = (
   return (...args) => {
     return dispatch => {
       _.forEach(action.dispatch, (subAction, subActionName) => {
-        const argumentNames = subAction.argumentIndices.map(index => action.arguments[index]);
-        const argumentz = subAction.argumentIndices.map(index => args[index]);
+        const argumentNames = subAction.argumentIndices.map(index => action.payload[index]);
+        const subActionPayload = subAction.argumentIndices.map(index => args[index]);
         const subActionConstant = generateActionConstant(componentName, subActionName);
-        const payload = _.zipObject(argumentNames, argumentz);
+        const payload = _.zipObject(argumentNames, subActionPayload);
         dispatch({ type: subActionConstant, payload });
       })
     };
