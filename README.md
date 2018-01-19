@@ -15,7 +15,7 @@ const = actions = {
 
 fastActions(actions);
 ```
-#### Redux Fast Actions generates actions constants and action creators.
+#### Redux Fast Actions generates action constants and action creators.
 ```javascript
 {
   types:{
