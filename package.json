@@ -1,6 +1,6 @@
 {
   "name": "redux-fast-actions",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A module to ease the pain of creating actions constants and action creator functions.",
   "main": "lib/index.js",
   "scripts": {
