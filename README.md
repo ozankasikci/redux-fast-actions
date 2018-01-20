@@ -13,10 +13,11 @@ const actions = {
   }
 }
 
-fastActions(actions);
+const generatedActions = fastActions(actions);
 ```
 #### Redux Fast Actions generates action constants and action creators.
 ```javascript
+// console.log(generatedActions)
 {
   types:{
     HOME_FETCH_FEED: 'HOME_FETCH_FEED'
