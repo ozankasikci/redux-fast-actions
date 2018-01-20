@@ -7,7 +7,7 @@ Because declaring action constants and action creator function for each action i
 ```javascript
 import fastActions from 'redux-fast-actions';
 
-const = actions = {
+const actions = {
   home: {
     fetchFeed: { payload: ['feeds'] },
   }
