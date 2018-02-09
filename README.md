@@ -44,7 +44,7 @@ const { types, actions } = generatedActions;
 }
 
 
-then you can dispatch the generated actions like;
+//then you can dispatch the generated actions like;
 dispatch(actions.home.fetchFeed(feedIds))
 ```
 
