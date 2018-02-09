@@ -22,6 +22,7 @@ const generatedActions = fastActions(actions);
 ```javascript
 const { types, actions } = generatedActions;
 
+
 // console.log(types)
 {
   HOME_FETCH_FEED: 'HOME_FETCH_FEED'
@@ -41,6 +42,10 @@ const { types, actions } = generatedActions;
     }
   }
 }
+
+then you can dispatch the generated actions like `dispatch(actions.home.fetchFeed(feedsArray))`
+
+dispatch the generaated actions,
 ```
 
 # Installation
