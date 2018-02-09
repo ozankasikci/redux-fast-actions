@@ -10,23 +10,33 @@ import fastActions from 'redux-fast-actions';
 const actions = {
   home: {
     fetchFeed: { payload: ['feeds'] },
+  },
+  profile: {
+    uploadImage: { payload: ['imagePath', 'imageName'] }
   }
 }
 
 const generatedActions = fastActions(actions);
 ```
 #### Redux Fast Actions generates action constants and action creators.
-```javascript
-// console.log(generatedActions)
+const { types, actions } = generatedActions;
+
+// console.log(types)
 {
-  types:{
-    HOME_FETCH_FEED: 'HOME_FETCH_FEED'
+  HOME_FETCH_FEED: 'HOME_FETCH_FEED'
+  PROFILE_UPLOAD_IMAGE: 'PROFILE_UPLOAD_IMAGE'
+}
+
+// console.log(actions)
+{
+  home: {
+    fetchFeed: (feeds) => {
+      return { type: HOME_FETCH_FEED, payload: { feeds } }
+    }
   },
-  actions: {
-    home: {
-      fetchFeed: (feeds) => {
-        return { type: HOME_FETCH_FEED, payload: { feeds } }
-      }
+  profile: {
+    uploadImage: (imagePath, imageName) => {
+      return { type: PROFILE_UPLOAD_IMAGE, payload: { imagePath, imageName } }
     }
   }
 }
