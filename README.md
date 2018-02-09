@@ -3,7 +3,7 @@
 Because declaring action constants and action creator function for each action is a real pain.
 
 # One object to rule them all
-#### Create an action config object.
+#### Create an action config object in a file, export the generated types and actions.
 ```javascript
 // actions.js
 import fastActions from 'redux-fast-actions';
@@ -21,9 +21,9 @@ const fasActions = fastActions(actions);
 export const types = fasActions.types;
 export const actions = fasActions.actions;
 ```
-#### Redux Fast Actions generates action constants and action creators.
+#### Import the file anywhere in your project.
 ```javascript
-// import the file anywhere in your project
+// this type of usage greatly reduces the loc number
 const { types, actions } = 'path/to/actions.js';
 
 
@@ -48,7 +48,7 @@ const { types, actions } = 'path/to/actions.js';
 }
 
 
-//then you can dispatch the generated actions like;
+// you can dispatch the generated actions like;
 dispatch(actions.profile.uploadImage(imagePath, imageName))
 ```
 
