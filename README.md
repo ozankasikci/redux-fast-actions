@@ -43,9 +43,9 @@ const { types, actions } = generatedActions;
   }
 }
 
-then you can dispatch the generated actions like `dispatch(actions.home.fetchFeed(feedsArray))`
 
-dispatch the generaated actions,
+then you can dispatch the generated actions like;
+dispatch(actions.home.fetchFeed(feedIds))
 ```
 
 # Installation
