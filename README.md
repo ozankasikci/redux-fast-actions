@@ -5,6 +5,7 @@ Because declaring action constants and action creator function for each action i
 # One object to rule them all
 #### Create an action config object.
 ```javascript
+// actions.js
 import fastActions from 'redux-fast-actions';
 
 const actions = {
@@ -16,11 +17,14 @@ const actions = {
   }
 }
 
-const generatedActions = fastActions(actions);
+const fasActions = fastActions(actions);
+export const types = fasActions.types;
+export const actions = fasActions.actions;
 ```
 #### Redux Fast Actions generates action constants and action creators.
 ```javascript
-const { types, actions } = generatedActions;
+// import the file anywhere in your project
+const { types, actions } = 'path/to/actions.js';
 
 
 // console.log(types)
