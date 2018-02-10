@@ -23,7 +23,6 @@ export const actions = fasActions.actions;
 ```
 #### Import the file anywhere in your project.
 ```javascript
-// this type of usage greatly reduces the loc number
 const { types, actions } = 'path/to/actions.js';
 
 
